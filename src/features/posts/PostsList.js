@@ -23,12 +23,15 @@ const PostsList = () => {
 
       <p className="post-content">{post.content}</p>
       <ReactionButtons post={post} />
-      <div style={{ marginTop: '5px', marginLeft: '0', padding: 0 }}>
+      <div className="post-time-div">
         <PostAuthor userId={post.user} />
         <TimeAgo timestamp={post.date} />
       </div>
       <Link to={`/posts/${post.id}`} className="button muted-button">
         View Post
+      </Link>
+      <Link to={`/editPost/${post.id}`} className="button">
+        Edit Post
       </Link>
     </article>
   ))
