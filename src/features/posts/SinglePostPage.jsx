@@ -5,12 +5,16 @@ import { TimeAgo } from './TimeAgo'
 import { PostAuthor } from './PostAuthor'
 import { ReactionButtons } from './ReactionButtons'
 
+import { selectPostById } from './postsSlice'
+
 const SinglePostPage = ({ match }) => {
   const { postId } = match.params
 
-  const post = useSelector((state) =>
-    state.posts.find((post) => post.id === postId)
-  )
+  // const post = useSelector((state) =>
+  //   state.posts.find((post) => post.id === postId)
+  // )
+
+  const post = useSelector((state) => selectPostById(state, postId))
 
   if (!post) {
     return (
